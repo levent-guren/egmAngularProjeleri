@@ -1,0 +1,75 @@
+<div class="sayfa">
+    <div class="banner">
+        <img src="/assets/image/banner.jpg" />
+    </div>
+    <div class="altSayfa">
+        <div class="menu">
+
+            <div class="d-flex">
+                <!-- Sidebar -->
+                <nav id="sidebar" class="collapse d-md-block bg-light" [class.show]="true"
+                    style="min-width:260px; max-width:260px;">
+                    <div class="p-3 border-end h-100">
+                        <h5 class="mb-3">Otel Yönetimi Programı</h5>
+                        <div>Merhaba {{ authService.payload.sub }}</div>
+                        <ul class="nav nav-pills flex-column gap-1">
+                            @if (authService.hasRole('admin')) {
+                            <!-- Yönetim (collapsible group) -->
+                            <li class="nav-item">
+                                <a class="nav-link d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" role="button"
+                                    [attr.aria-expanded]="isYonetimOpen ? 'true' : 'false'"
+                                    aria-controls="yonetimCollapse" [class.active]="sectionActive('/yonetim')"
+                                    (click)="toggleYonetim()">
+                                    <span>Yönetim</span>
+                                    <span class="ms-2" aria-hidden="true">▾</span>
+                                </a>
+                                <div id="yonetimCollapse" class="collapse ms-3"
+                                    [class.show]="sectionActive('/yonetim') || isYonetimOpen">
+                                    <ul class="nav flex-column mt-2 gap-1">
+                                        <li class="nav-item">
+                                            <a class="nav-link" routerLink="yonetim/otel" routerLinkActive="active"
+                                                [routerLinkActiveOptions]="{ exact: true }">
+                                                Otel
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" routerLink="/yonetim/kullanici"
+                                                routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                                                Kullanıcı
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            }
+                            <!-- Misafir -->
+                            <li class="nav-item">
+                                <a class="nav-link" routerLink="misafir" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }">
+                                    Misafir
+                                </a>
+                            </li>
+
+                            <!-- Otel (root) -->
+                            <li class="nav-item">
+                                <a class="nav-link" routerLink="otel" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }">
+                                    Otel
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link hand" (click)="logout()">
+                                    Çıkış
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="content">
+            <router-outlet />
+        </div>
+    </div>
+</div>

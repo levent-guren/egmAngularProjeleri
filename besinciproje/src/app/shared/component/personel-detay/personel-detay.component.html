@@ -1,0 +1,24 @@
+<div>
+    @if (personelListesi.length==0) {
+    Personel Bulunamadı...
+    } @else {
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sicil</th>
+                <th>Adı</th>
+                <th>Soyadı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (personel of personelListesi; track personel.id) {
+            <tr>
+                <td>{{personel.id}}</td>
+                <td>{{personel.adi}}</td>
+                <td>{{personel.soyadi}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>

@@ -1,0 +1,25 @@
+<mat-dialog-content>
+    <form [formGroup]="form">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Otel Adı:</th>
+                    <td>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" formControlName="adi" name="otelAdi" class="form-control">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button class="btn btn-danger" matButton mat-dialog-close>Cancel</button>
+    <button class="btn btn-info ms-3" matButton [mat-dialog-close]="true" cdkFocusInitial>
+        @if(guncelle) {
+        Güncelle
+        } @else {
+        Ekle
+        }</button>
+</mat-dialog-actions>

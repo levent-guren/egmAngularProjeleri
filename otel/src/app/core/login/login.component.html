@@ -1,0 +1,29 @@
+<div class="login-container">
+    <h2>Giriş Yap</h2>
+
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label for="username">Kullanıcı Adı</label>
+            <input id="username" [class.is-invalid]="hata('username')" name="username" type="text"
+                formControlName="username" placeholder="Kullanıcı adınızı girin" />
+            @if(hata('username')) {
+            <small>
+                <div class="text-white">Kullanıcı Adı boş geçilemez</div>
+            </small>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="password">Şifre</label>
+            <input id="password" [class.is-invalid]="helper.hataControl('password', form)" name="password"
+                type="password" formControlName="password" placeholder="Şifrenizi girin" />
+            @if(hata('password')) {
+            <small>
+                <div class="text-white">Şifre alanı boş geçilemez</div>
+            </small>
+            }
+        </div>
+
+        <button (click)="login()" type="button" [disabled]="form.invalid">Giriş Yap</button>
+    </form>
+</div>

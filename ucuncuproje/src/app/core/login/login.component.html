@@ -1,0 +1,31 @@
+<div class="page">
+    <form class="form" [formGroup]="loginForm">
+        <div class="mb-3">
+            <label for="txtKullaniciAdi" class="form-label">Kullanıcı Adı</label>
+            <input formControlName="username" type="text" class="form-control"
+                [class.is-invalid]="get('username').status=='INVALID' && get('username').touched"
+                id="txtKullaniciAdi" />
+            @if(get('username').status=='INVALID' && get('username').touched) {
+            <small class="text-danger">Kullanıcı adı boş geçilemez</small>
+            }
+        </div>
+        <div class="mb-3">
+            <label for="txtSifre" class="form-label">Şifre</label>
+            <input formControlName="password" type="password" class="form-control"
+                [class.is-invalid]="get('password').status=='INVALID' && get('password').touched" id="txtSifre" />
+            @if(get('password').status=='INVALID' && get('password').touched) {
+            @if(get('password').errors!['required']) {
+            <div><small class="text-danger">Şifre alanı boş geçilemez</small></div>
+            }
+            @if(get('password').errors!['minlength']) {
+            <div><small class="text-danger">Şifre alanı en az 3 karakter olmalıdır</small></div>
+            }
+            @if(get('password').errors!['sifre']) {
+            <div><small class="text-danger">{{get('password').errors!['sifre']}}</small></div>
+            }
+
+            }
+        </div>
+        <button class="btn btn-primary" [disabled]="loginForm.invalid" (click)="login()">Giriş</button>
+    </form>
+</div>

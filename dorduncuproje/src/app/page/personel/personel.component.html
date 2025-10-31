@@ -1,0 +1,29 @@
+<div class="page">
+    @if (personel==null) {
+    Yükleniyor...
+    } @else {
+    <table class="mb-3">
+        <tr>
+            <th>Sicil</th>
+            <td>{{personel.id}}</td>
+        </tr>
+        <tr>
+            <th>Adı</th>
+            <td>{{personel.name}}</td>
+        </tr>
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <td>{{personel.username}}</td>
+        </tr>
+        <tr>
+            <th>E-Posta</th>
+            <td>{{personel.email}}</td>
+        </tr>
+    </table>
+    <button class="btn btn-primary" (click)="oncekiPersonel()">Önceki Personel</button>
+    <button class="btn btn-warning ms-3" (click)="sonrakiPersonel()">Sonraki Personel</button>
+    }
+    <div>
+        <button class="btn btn-info mt-3" [routerLink]="['/']">Menü</button>
+    </div>
+</div>

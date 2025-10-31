@@ -1,0 +1,8 @@
+<div class="page">
+    <div>
+        <app-personel-search (search)="aramaYapiliyor($event)" />
+    </div>
+    <div>
+        <app-personel-detay [kriter]="search" />
+    </div>
+</div>

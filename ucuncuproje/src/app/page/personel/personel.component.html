@@ -1,0 +1,22 @@
+<div class="page">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sicil</th>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Resim</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (personel of personeller; track personel.id) {
+            <tr>
+                <td>{{personel.id}}</td>
+                <td>{{personel.adi}}</td>
+                <td>{{personel.soyadi}}</td>
+                <td><img class="resim" src="{{personel.resim}}" /></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

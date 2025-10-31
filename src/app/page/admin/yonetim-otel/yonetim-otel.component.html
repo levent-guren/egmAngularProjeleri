@@ -1,0 +1,26 @@
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Otel Adı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (otel of oteller; track otel.id) {
+            <tr (click)="otelSec(otel)" [class.table-active]="otel.id == seciliOtel?.id">
+                <td>{{otel.adi}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <button class="btn btn-primary" (click)="otelEkleGuncelle()">
+        @if(seciliOtel==null) {
+        Otel Ekle
+        } @else {
+        Oteli Güncelle
+        }
+    </button>
+    @if(seciliOtel!=null) {
+    <button class="btn btn-danger ms-3" (click)="oteliSil()">Oteli Sil</button>
+    }
+</div>
