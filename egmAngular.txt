@@ -1,0 +1,27 @@
+angular cli
+nodejs
+vscode
+cmd powershell
+new project
+dizin yapısı
+angular 18
+component
+binding event property
+two way
+if for
+routing
+layout
+directive
+service
+pipe
+guard
+input ooutput
+localstorage sessionstarege
+token
+standalone / module
+api
+http client+options ekleme params ekleme
+interceptor
+form yapısı
+reactive ng form+lazy loading,eager
+signal
